@@ -22,8 +22,7 @@ app.use(morgan('dev')); // log ever request to console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade'); // set up jade for templating
+app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({secret: 'ilovescotchschotchyscotchscotch'})); //session secret
