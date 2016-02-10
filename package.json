@@ -1,0 +1,45 @@
+{
+  "name": "passportrng",
+  "version": "0.0.1",
+  "description": "This is a practice area for getting the idea of passport.js into my head",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">0.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnergeticPixels/passport-trng.git"
+  },
+  "keywords": [
+    "passport",
+    "express4",
+    "mongoose",
+    "connect-flash"
+  ],
+  "author": "Anthony Jackman <energeticpixels@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EnergeticPixels/passport-trng/issues"
+  },
+  "homepage": "https://github.com/EnergeticPixels/passport-trng#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.14.2",
+    "connect-flash": "0.1.1",
+    "cookie-parser": "1.4.1",
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "jade": "1.11.0",
+    "method-override": "2.3.5",
+    "mongoose": "4.4.3",
+    "morgan": "1.6.1",
+    "passport": "0.3.2",
+    "passport-facebook": "2.1.0",
+    "passport-google-oauth": "1.0.0",
+    "passport-local": "1.0.0",
+    "passport-twitter": "1.0.4"
+  }
+}
