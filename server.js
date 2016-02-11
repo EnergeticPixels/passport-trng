@@ -3,7 +3,6 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
-var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 var morgan = require('morgan');
@@ -11,11 +10,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var configDB = require('./config/db');
+
 
 // configuration
-mongoose.connect(configDB.url);  //connect to our db
-require('./config/passport')(passport) // pass passport for configuration
+//mongoose.connect(configDB.url);  //connect to our db
+var db = require('./config/db');
+require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express app
 app.use(morgan('dev')); // log ever request to console
