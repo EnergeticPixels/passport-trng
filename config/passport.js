@@ -1,5 +1,5 @@
 // load all the stuff we need
-var LocalStorage = require('passport-local').Strategy();
+var LocalStrategy = require('passport-local').Strategy;
 
 //load the user model
 var User = require('../app/models/user');
@@ -16,7 +16,6 @@ module.exports = function(passport) {
     passport.serializeUser(function(id, done) {
         done(null, user.id);
     });
-
     // used to deserialize the users
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {

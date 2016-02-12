@@ -20,12 +20,16 @@ require('./config/passport')(passport); // pass passport for configuration
 // set up our express app
 app.use(morgan('dev')); // log ever request to console
 app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser()); // get information from html forms
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true})); // get information from html forms
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
-app.use(session({secret: 'ilovescotchschotchyscotchscotch'})); //session secret
+app.use(session({
+    secret: 'ilovescotchschotchyscotchscotch',
+    saveUninitialized: true,
+    resave: true})); //session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages store in sessions
@@ -35,15 +39,15 @@ require('./app/routes')(app, passport); // load our routes and pass in our app a
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
+});*/
 // ERROR HANDLING
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+/*if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -51,16 +55,16 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-}
+}*/
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+/*app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
     error: {}
   });
-});
+});*/
 
 // launch
 app.listen(port);
