@@ -14,6 +14,12 @@ module.exports = function(app, passport) {
         // render the page and pass in any flash data if it exists
         res.render('login.ejs', {message: req.flash('loginMessage')});
     });
+    // process the login forms
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect: '/profile',
+        failureRedirect: '/login',
+        failureFlash: true
+    }));
 
     // =============================
     // SIGNUP ======================
